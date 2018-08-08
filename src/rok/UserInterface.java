@@ -12,7 +12,8 @@ public class UserInterface {
 		map = new Map(); 
 		ui = new Scanner(System.in); 		
 	}
-	
+
+//starting menu of game -- build character(only name for now)
 	public void startMenu(){
 		System.out.println("Hello, Welcome to ruins of Karthaal. Lets setup your character.");
 		System.out.println("What's your name?");
@@ -25,16 +26,38 @@ public class UserInterface {
 		}
 	}
 	
-	public void start(){
-		if(ui.next().toLowerCase().equals("north")){
+//method for overworld commands i.e. traversing map 
+	public void overWorldCommands(String input) {
+		if(input.toLowerCase().equals("north")){
 			map.roomNorth();
-		}else if(ui.next().toLowerCase().equals("south")){
+		}else if(input.toLowerCase().equals("south")){
 			map.roomSouth();
-		}else if(ui.next().toLowerCase().equals("east")){
+		}else if(input.toLowerCase().equals("east")){
 			map.roomEast();
-		}else if(ui.next().toLowerCase().equals("west")){
+		}else if(input.toLowerCase().equals("west")){
 			map.roomWest();
+		}else if(input.toLowerCase().equals("menu")){
+			player.printMenu();
+			this.menuInput(ui.nextInt());
+		}else {
+			System.out.println("Sorry, I don't recognize that command");
+		}
+	}
+//takes input for ingame menu 
+//TODO fix exiting bc it doesn't work
+	public void menuInput(int input) {
+		if(input == 1) {
+			player.printInventory();
+		}else if(input == 1) {
+			System.exit(0);
 		}
 	}
 	
+//main commmand for UI	
+	public void start(){
+		this.startMenu(); 
+		while(true) {
+		this.overWorldCommands(ui.next()); 
+		}
+	}	
 }
