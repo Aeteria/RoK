@@ -21,6 +21,9 @@ public class Room {
 	public String getDescriptions(){
 		return descriptionA; 
 	}
+	public void printDescriptions() {
+		System.out.println(descriptionA);
+	}
 	
 	public void setDescription(String description){
 		descriptionA = description;  
