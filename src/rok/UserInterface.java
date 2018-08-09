@@ -15,7 +15,7 @@ public class UserInterface {
 
 //starting menu of game -- build character(only name for now)
 	public void startMenu(){
-		System.out.println("Hello, Welcome to ruins of Karthaal. Lets setup your character.");
+		System.out.println("Hello, Welcome to Ruins of Karthaal. Lets setup your character.");
 		System.out.println("What's your name?");
 		player.setName(ui.next());
 		if(player.getName().equals("superuser")){
@@ -56,6 +56,7 @@ public class UserInterface {
 //main commmand for UI	
 	public void start(){
 		this.startMenu(); 
+		map.printRoomDescription(0, 0);;
 		while(true) {
 		this.overWorldCommands(ui.next()); 
 		}

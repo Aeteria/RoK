@@ -23,6 +23,13 @@ public class Map {
 				"A dense wooded area with a skeleton clutching a bag", 1, false); ; 
 	}
 //TODO make secondary description appear any time player enters a rooms for the second time	
+	
+	public void printRoomDescription(int row, int col) {
+		rooms[row][col].printDescriptions();
+	}
+	public void printCurrentRoomDescription() {
+		currentRoom.printDescriptions();
+	}
 	void roomNorth(){
 		if(row == 0 ){
 			System.out.println("A dark forrest looms ahead.... you cannot continue in this direction");
